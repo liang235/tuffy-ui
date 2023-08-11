@@ -7,7 +7,7 @@ export default defineConfig({
 	title: "tuffy-ui",
 	description: "tuffy-ui 文档",
 	lang: 'zh-cn', // 语言
-	base: '/', // 基础路径
+	base: '/tuffy-ui/', // 基础路径
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 
