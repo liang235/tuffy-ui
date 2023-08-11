@@ -8,6 +8,7 @@ export default defineConfig({
 	description: "tuffy-ui 文档",
 	lang: 'zh-cn', // 语言
 	base: '/tuffy-ui/', // 基础路径
+	head: [['link', { rel: 'icon', href: './vite.svg' }]],
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 
@@ -22,5 +23,9 @@ export default defineConfig({
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }
 		]
-	}
+	},
+
+	markdown: {
+		lineNumbers: true, // 代码块显示行号
+	},
 })
