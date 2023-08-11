@@ -1,0 +1,24 @@
+{
+  "name": "tuffy-ui",
+  "scripts": {
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "preview": "vitepress preview . --port 9527"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "vitepress": "1.0.0-rc.4",
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
+    "medium-zoom": "^1.0.8"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  }
+}
