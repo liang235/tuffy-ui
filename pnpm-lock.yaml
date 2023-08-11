@@ -1,8 +1,4 @@
-lockfileVersion: '6.0'
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
+lockfileVersion: 6
 
 specifiers:
   medium-zoom: ^1.0.8
