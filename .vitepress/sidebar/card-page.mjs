@@ -10,6 +10,7 @@ export default [
 		collapsed: false, // 是否展开侧边栏组，默认展开，设置为 true 为隐藏
 		items: [
 			{ text: '介绍', link: `${commonPath}/index.md` },
+			{ text: 'methods', link: `${commonPath}/methods.md` },
 		],
 	},
 ]
