@@ -8,9 +8,11 @@ export default defineConfig({
 	description: "tuffy-ui 文档",
 	lang: 'zh-cn', // 语言
 	base: '/tuffy-ui/', // 基础路径
-	head: [['link', { rel: 'icon', href: './vite.svg' }]],
+	head: [  ['link', { rel: 'icon', href: '/vitepress-logo-mini.svg' }]],
+
+	// https://vitepress.dev/reference/default-theme-config
 	themeConfig: {
-		// https://vitepress.dev/reference/default-theme-config
+		logo: { src: '/vitepress-logo-mini.svg', width: 24, height: 24 },
 
 		// 多个侧边栏，根据页面路径显示不同的侧边栏
 		sidebar,
