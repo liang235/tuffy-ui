@@ -13,8 +13,9 @@ export default [
 			{ text: '自定义页面', link: `${commonPath}/custom-page.md` },
 			{ text: '页面属性', link: `${commonPath}/attributes.md`},
 			{ text: '模板引用', link: `${commonPath}/template-refs.md`},
-			{ text: '日期工具', link: `${commonPath}/date.md` },
 			{ text: 'utils 工具类', link: `${commonPath}/utils.md` },
+			{ text: '日期工具', link: `${commonPath}/date.md` },
+			{ text: 'API 接口', link: `${commonPath}/api.md` },
 		],
 	},
 ]
