@@ -12,7 +12,9 @@ export default [
 			{ text: '基础页面', link: `${commonPath}/base-page` },
 			{ text: '自定义页面', link: `${commonPath}/custom-page` },
 			{ text: '页面属性', link: `${commonPath}/attributes`},
-			{ text: '日期', link: `${commonPath}/date` },
+			{ text: '模板引用', link: `${commonPath}/template-refs`},
+			{ text: '日期工具', link: `${commonPath}/date` },
+			{ text: 'utils 工具类', link: `${commonPath}/utils` },
 		],
 	},
 ]

@@ -8,7 +8,7 @@ export default defineConfig({
 	description: "tuffy-ui 文档",
 	lang: 'zh-cn', // 语言
 	base: '/tuffy-ui/', // 基础路径
-	head: [  ['link', { rel: 'icon', href: '/vitepress-logo-mini.svg' }]],
+	head: [['link', { rel: 'icon', href: '/vitepress-logo-mini.svg' }]],
 
 	// https://vitepress.dev/reference/default-theme-config
 	themeConfig: {
@@ -25,6 +25,15 @@ export default defineConfig({
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }
 		],
+
+		// 标题大纲
+		outlineTitle: '当前页导航',
+
+		// 可用于自定义出现在上一个和下一个链接上方的文本
+		docFooter: {
+			prev: '上一页',
+			next: '下一页',
+		},
 
 		// https://vitepress.qzxdp.cn/reference/default-theme-search.html
 		search: {
