@@ -8,7 +8,7 @@ hero:
   tagline: 简单、强大、快速。满足你一直想要的现代SSG框架.
   actions:
     - theme: brand
-      text: 开始
+      text: 开始 →
       link: /guide/base-page
     - theme: alt
       text: 结束

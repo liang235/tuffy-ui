@@ -14,23 +14,26 @@ getDictionary(handler, info) {
 ## 获取数据字典
 ```js
 // 获取字典中的数据
-queryDictionary(type) {
-    const that = this;
-    const info = {
-        DICT_ID: type,
+data() {
+    return {
+        DJH_JS_MEET_TYPE: [],
+        DJH_JS_MEET_ZKFS: [],
     };
-    that.$api.getDictionary(that, info).then((data) => {
-        if (data.DICT_ID) {
-            switch (type) {
-                // 出席状态
-                case 'DS_CXZT':
-                    that.tableCxztData = data.CHILD;
-                    break;
-            }
-        }
-    });
 },
-
-// 调用方法获取字典
-that.queryDictionary('DS_CXZT');
+methods: {
+    // 初始化调用字典
+    async initializeDictionaries() {
+        await Promise.all([
+            this.queryDictionary('DJH_JS_MEET_TYPE'),
+            this.queryDictionary('DJH_JS_MEET_ZKFS'),
+        ]);
+    },
+    async queryDictionary(type) {
+        const info = { DICT_ID: type };
+        const { CHILD, DICT_ID } = await this.$api.getDictionary(this, info);
+        if (DICT_ID) {
+            this[type] = CHILD;
+        }
+    },
+}
 ```

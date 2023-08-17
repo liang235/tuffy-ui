@@ -1,7 +1,7 @@
 {
   "name": "tuffy-ui",
   "scripts": {
-    "dev": "vitepress dev .",
+    "dev": "vitepress dev . --port 9527",
     "build": "vitepress build .",
     "preview": "vitepress preview . --port 9527"
   },
