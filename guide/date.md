@@ -1,4 +1,5 @@
 # 日期工具
+日期工具属于 `$tu.utils.tools` 下的工具类
 
 ```js
 this.$tu.utils.tools.formatDate(日期对象缺省为当前日期, 格式化字符串缺省值为yyyy-MM-dd)
