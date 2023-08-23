@@ -3,34 +3,25 @@
 
 ## 页面结构
 ```vue
-<template>
-	<tu-container>
-		<tu-page ref="page"></tu-page>
-	</tu-container>
-</template>
-
-<script>
-export default {
-    name: '',
-    methods: {}
-}
-</script>
-
-<style lang="scss" scoped></style>
-```
-
-## [页面属性](./attributes)
-- `tu-container` 和 `tu-page` 都可以配置不同的属性，用作不同的场景
-- `server` 是很重要的一个属性，如果配置的为后端生成页面 `server` 必须要有
-```vue
+<!--
+ * @Description: 董事会专委会议档案
+-->
 <template>
 	<tu-container>
 		<tu-page
 			ref="page"
-			:server="server || 'xxx'"
+			:server="server || 'GSZL_DSZW_MEETING_ARCHIVES'"
 			:type="type || $tu.constant.SERVER_TYPE.LIST"
+			:params="params"
+			:page-path="pagePath"
+			:pageid="pageid"
 			:readonly="readonly"
-			@page-list-btn="pageListBtnHandler"
+			:is-link="isLink"
+			:query-data="queryData"
+			:id="id"
+			:resetRowDblclick="true"
+			:is-add="isAdd"
+			:send-refresh="sendRefresh"
 		>
 		</tu-page>
 	</tu-container>
@@ -38,7 +29,7 @@ export default {
 
 <script>
 export default {
-	name: 'xxx',
+	name: 'GSZL_DSZW_MEETING_ARCHIVES',
 	props: {
 		type: {
 			type: String,
@@ -48,28 +39,52 @@ export default {
 			type: String,
 			default: null,
 		},
+		pagePath: {
+			type: String,
+			default: null,
+		},
 		params: {
 			type: Object,
 			default: {},
+		},
+		pageid: {
+			type: String,
+			default: null,
 		},
 		readonly: {
 			type: Boolean,
 			default: false,
 		},
+		isAdd: {
+			type: Boolean,
+			default: false,
+		},
+		sendRefresh: {
+			type: String,
+			default: null,
+		},
+		id: null,
+		isLink: {
+			type: Boolean,
+			default: false,
+		},
+		parent: {
+			type: Object,
+			default() {
+				return this;
+			},
+		},
+		queryData: {
+			type: Object,
+			default: {},
+		},
 	},
-	methods: {
-		// 列表按钮事件
-		pageListBtnHandler(btn, index) {
-			const that = this;
-
-			switch (btn.code) {
-				// 发布
-				case 'addAuth':
-					console.log('发布按钮')
-					break;
-			}
-		}
+	data() {
+		return {};
 	},
+	methods: {},
 };
 </script>
+
+<style scoped></style>
 ```

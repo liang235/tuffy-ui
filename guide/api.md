@@ -21,13 +21,13 @@ data() {
     };
 },
 methods: {
-    // 初始化调用字典
-    async initializeDictionaries() {
-        await Promise.all([
-            this.queryDictionary('DJH_JS_MEET_TYPE'),
-            this.queryDictionary('DJH_JS_MEET_ZKFS'),
-        ]);
+    // 初始化数据字典
+    async initDictionary() {
+        const dictionaryTypes = ['DJH_JS_MEET_TYPE', 'DJH_JS_MEET_ZKFS'];
+        await Promise.all(dictionaryTypes.map(type => this.queryDictionary(type)));
     },
+
+    // 获取数据字典
     async queryDictionary(type) {
         const info = { DICT_ID: type };
         const { CHILD, DICT_ID } = await this.$api.getDictionary(this, info);

@@ -6,3 +6,9 @@
 const pageHandler = this.$refs.page;
 const formData = this.$tu.utils.tools.copyObject(pageHandler.getFormData());
 ```
+
+## copyArray 复制数组
+```js
+const pageHandler = this.$refs.page;
+const cardBtns = this.$tu.utils.tools.copyArray(pageHandler.getCardBtns());
+```
