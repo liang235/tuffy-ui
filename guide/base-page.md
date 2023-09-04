@@ -3,14 +3,11 @@
 
 ## 页面结构
 ```vue
-<!--
- * @Description: 董事会专委会议档案
--->
 <template>
 	<tu-container>
 		<tu-page
 			ref="page"
-			:server="server || 'GSZL_DSZW_MEETING_ARCHIVES'"
+			:server="server"
 			:type="type || $tu.constant.SERVER_TYPE.LIST"
 			:params="params"
 			:page-path="pagePath"
@@ -29,13 +26,9 @@
 
 <script>
 export default {
-	name: 'GSZL_DSZW_MEETING_ARCHIVES',
+	name: '',
 	props: {
 		type: {
-			type: String,
-			default: null,
-		},
-		server: {
 			type: String,
 			default: null,
 		},
@@ -78,11 +71,19 @@ export default {
 			type: Object,
 			default: {},
 		},
+		pageHandlerOptions: {
+			type: Object,
+			default() {
+				return {};
+			},
+		},
 	},
 	data() {
-		return {};
+		return {
+			server: '',
+		};
 	},
-	methods: {},
+	methods: { },
 };
 </script>
 

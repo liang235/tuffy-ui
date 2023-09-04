@@ -3,5 +3,5 @@
 
 ```js
 // 日期格式化
-formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:S');
+this.$tu.utils.tools.formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:S');
 ```
