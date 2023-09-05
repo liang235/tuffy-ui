@@ -13,8 +13,8 @@
 			:page-path="pagePath"
 			:pageid="pageid"
 			:readonly="readonly"
-			:is-link="isLink"
 			:query-data="queryData"
+			:is-link="isLink"
 			:id="id"
 			:resetRowDblclick="true"
 			:is-add="isAdd"
@@ -61,21 +61,9 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		parent: {
-			type: Object,
-			default() {
-				return this;
-			},
-		},
 		queryData: {
 			type: Object,
 			default: {},
-		},
-		pageHandlerOptions: {
-			type: Object,
-			default() {
-				return {};
-			},
 		},
 	},
 	data() {
