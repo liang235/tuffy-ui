@@ -10,6 +10,7 @@
 			:is-link="isLink"
 			:pageid="pageid"
 			type="auth"
+			@page-after-auth-refresh="pageAfterAuthRefresh"
 		>
             <div>在这里写自定义内容即可</div>
 		</tu-page>
@@ -42,6 +43,9 @@ export default {
 	methods: {
 		// 页面显示
 		pageShowHandler() { },
+
+		// 针对自定义页面加载完成后事件
+		pageAfterAuthRefresh() { },
 	},
 };
 </script>

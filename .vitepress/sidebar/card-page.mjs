@@ -9,9 +9,9 @@ export default [
 		collapsible: false, // 是否可折叠的侧边栏组
 		collapsed: false, // 是否展开侧边栏组，默认展开，设置为 true 为隐藏
 		items: [
-			{ text: '介绍', link: `${commonPath}/index.md` },
-			{ text: '表单数据', link: `${commonPath}/data.md` },
-			{ text: 'methods', link: `${commonPath}/methods.md` },
+			{ text: '什么是卡片页面', link: `${commonPath}/index.md` },
+			{ text: '监听表单数据', link: `${commonPath}/edit_form_data.md` },
+			{ text: '保存前修改', link: `${commonPath}/before_save.md` },
 		],
 	},
 ]

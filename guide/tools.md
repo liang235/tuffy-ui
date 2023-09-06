@@ -1,4 +1,4 @@
-# tools 工具
+# tools
 `tools` 属于 `$tu.utils` 下的工具类
 
 ## 获取当前用户
