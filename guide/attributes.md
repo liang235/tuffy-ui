@@ -8,7 +8,7 @@
 | use-list-show-back | 是否添加返回按钮     | false  |
 | is-link-readonly   | 关联服务是否为只读   | false  |
 | @page-after-auth-refresh   | 针对自定义页面加载完成后事件   | —  |
-
+| @page-before-query   | 页面数据加载之前   | —  |
 
 ## 卡片页面
 | 类型           | 说明         | 回调参数   |

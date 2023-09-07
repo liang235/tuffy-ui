@@ -10,7 +10,7 @@ export default [
 		collapsed: false, // 是否展开侧边栏组，默认展开，设置为 true 为隐藏
 		items: [
 			{ text: '什么是卡片页面', link: `${commonPath}/index.md` },
-			{ text: '监听表单数据', link: `${commonPath}/edit_form_data.md` },
+			{ text: '修改表单数据', link: `${commonPath}/edit_form_data.md` },
 			{ text: '保存前修改', link: `${commonPath}/before_save.md` },
 		],
 	},
