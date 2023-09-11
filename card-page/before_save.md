@@ -5,7 +5,7 @@
 // :before-save="beforeSave"
 beforeSave(data) {
     // info 部分按需求自定义修改
-    let info = Object.assign({}, data);
+    const info = Object.assign({}, data);
     info.S_MTIME = this.$tu.utils.tools.formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:S'); // 随机时间戳
 
     // Promise 这部分是固定的
