@@ -1,9 +1,8 @@
-# 上传下载
-附件的上传及下载
+# 附件操作
+附件的上传/下载/预览操作
 
 ## 上传附件
 ::: code-group
-
 ```vue [tu-input]
 <template>
 	<tu-input
@@ -105,8 +104,19 @@ export default {
 	}
 }
 </script>
-```
 
+<!-- 获取系统模板 - 查询附件 -->
+systemTemplateQueryFile(handler, _PK_) {
+	return handler.$tu.utils.request.http({
+		url: '/SY_COMM_FILE.finds.do',
+		method: 'post',
+		params: {
+			SERV_ID: 'DJH_GSZL_EXP_WORD_MODEL',
+			DATA_ID: _PK_
+		}
+	});
+},
+```
 :::
 
 
@@ -124,12 +134,7 @@ async autoDownload(row) {
 	}
 },
 
-/**
- * 获取系统模板 - 查询附件
- * SERV_ID 按项目自定义
- * @param {*} handler
- * @returns
- */
+// 获取系统模板 - 查询附件
 systemTemplateQueryFile(handler, _PK_) {
     return handler.$tu.utils.request.http({
         url: '/SY_COMM_FILE.finds.do',
@@ -139,5 +144,63 @@ systemTemplateQueryFile(handler, _PK_) {
             DATA_ID: _PK_
         }
     });
+},
+```
+
+## 预览附件
+```vue
+<template>
+	<tu-container>
+		<tu-page
+			:page-handler-options="{
+				...pageHandlerOptions,
+				previewFile,
+			}"
+		>
+		</tu-page>
+	</tu-container>
+</template>
+
+<script>
+export default {
+	props: {
+		pageHandlerOptions: {
+			type: Object,
+			default() {
+				return {};
+			},
+		},
+	},
+	data() {
+		return {
+			previewFile(options) {
+				return this.previewFileHandler(options);
+			},
+		};
+	},
+	methods: {
+		// 文件预览
+		async previewFileHandler({ hanaler, file }) {
+			// file.response 是新上传的附件
+			// file.FILE_ID 是详情页获取的附件
+			const res = file.response || [];
+			const FILE_ID = (res[0] || {}).FILE_ID || file.FILE_ID;
+			const resUrl = await this.$api.viewFiles(this, FILE_ID);
+			window.open(resUrl.URL);
+		},
+	}
+}
+</script>
+
+// http://test-www.cic.inter:9007/OA_USER_WATERMARKER.createFileUrl.do
+// 查看附件
+viewFiles(handler, fileId) {
+	return handler.$tu.utils.request.http({
+		url: '/OA_USER_WATERMARKER.createFileUrl.do',
+		method: 'post',
+		params: {
+			fileId
+		}
+	});
 },
 ```

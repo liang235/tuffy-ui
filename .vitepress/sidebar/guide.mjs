@@ -18,7 +18,7 @@ export default [
 			{ text: 'tools', link: `${commonPath}/tools.md` },
 			{ text: 'server', link: `${commonPath}/server.md` },
 			{ text: '日期工具', link: `${commonPath}/date.md` },
-			{ text: '上传下载', link: `${commonPath}/file_upload.md` },
+			{ text: '附件操作', link: `${commonPath}/file_upload.md` },
 		],
 	},
 ]
