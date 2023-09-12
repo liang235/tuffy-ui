@@ -5,7 +5,7 @@
 // @page-form-change="formChangeHandler"
 formChangeHandler(ele) {
     const pageHandler = this.$refs.page; // 当前页面 ref
-    const key = ele.key; // 字段名称
+    const { key } = ele; // 字段名称
     const getFormData = pageHandler.getFormData(); // 表单数据
     const formData = this.$tu.utils.tools.copyObject(getFormData);
 

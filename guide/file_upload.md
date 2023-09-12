@@ -4,6 +4,7 @@
 ## 上传附件
 ::: code-group
 ```vue [tu-input]
+<!-- :params="{ primaryValue: byid.ID }" 如果是在列表上传承，需传列表行的ID -->
 <template>
 	<tu-input
 		ref="ele"
@@ -11,8 +12,8 @@
 		accept="*"
 		keyset="FUJIAN"
 		:server="server"
-		:id="primary_ID"
-		:params="{ primaryValue: primary_ID }"
+		:id="byid.ID"
+		:params="{ primaryValue: byid.ID }"
 		v-model="fileList"
 		@success="handlerAnnexSuccess"
 	/>
@@ -24,16 +25,15 @@ export default {
 		return {
 			server: '', // 服务
 			fileList: [], // 上传的文件列表
-			primary_ID: '', // 默认页面ID
+			byid: {}, // 表单数据
 		}
 	}
 	methods: {
-		// 获取页面ID
-		async getFormByid() {
-			const res = await this.$api.getFormByid(this, this.server);
-			if (res._MSG_ === '') {
-				this.primary_ID = res.ID;
-			}
+		// 获取表单 byid 数据
+		getByid() {
+			this.$api.byid(this, this.server).then((res) => {
+				this.byid = res;
+			});
 		},
 
 		// 文件上传成功
@@ -42,14 +42,17 @@ export default {
 }
 </script>
 
-
-// 获取表单ID
-getFormByid(handler, server) {
-    return handler.$tu.utils.request.http({
-        url: `/${server}.byid.do?server=${server}&_PK_=`,
-        method: 'get',
-    });
-}
+// 获取表单详情数据
+byid(handler, server, _PK_ = '') {
+	return handler.$tu.utils.request.http({
+		url: `/${server}.byid.do`,
+		method: 'post',
+		params: {
+			server,
+			_PK_,
+		},
+	});
+},
 ```
 
 ```vue [el-upload]
@@ -126,6 +129,16 @@ systemTemplateQueryFile(handler, _PK_) {
 	<el-button type="text" @click="autoDownload(scope.row)">下载</el-button>
 </template>
 
+// 点击列表行上的附件
+autoDownload(row) {
+	if (row.FILE_ID) {
+		this.$tu.utils.server.download(row.FILE_ID);
+	} else {
+		this.$message.warning('暂无附件');
+	}
+},
+
+// 也可以先判断是否存在附件
 async autoDownload(row) {
 	const result = await this.$api.systemTemplateQueryFile(this, row._PK_);
 	if (result._DATA_ && result._DATA_[0]) {
@@ -173,14 +186,14 @@ export default {
 	},
 	data() {
 		return {
-			previewFile(options) {
+			previewFile: (options) => {
 				return this.previewFileHandler(options);
 			},
 		};
 	},
 	methods: {
 		// 文件预览
-		async previewFileHandler({ hanaler, file }) {
+		async previewFileHandler({ handler, file }) {
 			// file.response 是新上传的附件
 			// file.FILE_ID 是详情页获取的附件
 			const res = file.response || [];
