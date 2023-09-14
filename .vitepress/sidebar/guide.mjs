@@ -13,6 +13,7 @@ export default [
 			{ text: '自定义页面', link: `${commonPath}/custom_page.md` },
 			{ text: '页面属性方法', link: `${commonPath}/attributes.md`},
 			{ text: '模板引用', link: `${commonPath}/template_refs.md`},
+			{ text: '页面插槽', link: `${commonPath}/slots.md`},
 			{ text: 'API 接口', link: `${commonPath}/api.md` },
 			{ text: 'utils', link: `${commonPath}/utils.md` },
 			{ text: 'tools', link: `${commonPath}/tools.md` },
