@@ -8,7 +8,7 @@ export default defineConfig({
 	description: "tuffy-ui 文档",
 	lang: 'zh-cn', // 语言
 	base: '/tuffy-ui/', // 基础路径
-	head: [['link', { rel: 'icon', href: '/vitepress-logo-mini.svg' }]],
+	head: [['link', { rel: 'icon', href: '/tuffy-ui/vitepress-logo-mini.svg' }]],
 
 	// https://vitepress.dev/reference/default-theme-config
 	themeConfig: {
