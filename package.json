@@ -6,8 +6,8 @@
     "preview": "vitepress preview . --port 9527"
   },
   "devDependencies": {
-    "vitepress": "1.0.0-rc.12",
-    "vue": "^3.3.4"
+    "vitepress": "1.0.0-rc.24",
+    "vue": "^3.3.7"
   },
   "dependencies": {
     "medium-zoom": "^1.0.8"
