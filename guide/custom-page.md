@@ -6,10 +6,12 @@
 	<tu-container :is-show="isShow" @page-show="pageShowHandler">
 		<tu-page
 			ref="page"
+			type="auth"
 			:server="server"
 			:is-link="isLink"
 			:pageid="pageid"
-			type="auth"
+			:params="params"
+			:page-path="pagePath"
 			@page-after-auth-refresh="pageAfterAuthRefresh"
 		>
             <div>在这里写自定义内容即可</div>
@@ -32,6 +34,14 @@ export default {
 		isLink: {
 			type: Boolean,
 			default: false,
+		},
+		params: {
+			type: Object,
+			default: {},
+		},
+		pagePath: {
+			type: String,
+			default: '',
 		},
 	},
 	data() {
