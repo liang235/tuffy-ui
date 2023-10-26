@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 开始 →
-      link: /guide/base_page
+      link: /guide/base-page
     - theme: alt
       text: 结束
       link: /list-page

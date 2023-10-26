@@ -5,7 +5,7 @@ export default [
 	},
 	{
 		text: '指南',
-		link: '/guide/base_page',
+		link: '/guide/base-page',
 		activeMatch: '/guide/'
 	},
     {

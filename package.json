@@ -1,9 +1,9 @@
 {
   "name": "tuffy-ui",
   "scripts": {
-    "dev": "vitepress dev . --port 9527",
+    "dev": "vitepress dev . --port 9527 --open",
     "build": "vitepress build .",
-    "preview": "vitepress preview . --port 9527 --open"
+    "preview": "vitepress preview . --port 9527"
   },
   "devDependencies": {
     "vitepress": "1.0.0-rc.12",

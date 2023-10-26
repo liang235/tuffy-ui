@@ -19,6 +19,8 @@
 			:resetRowDblclick="true"
 			:is-add="isAdd"
 			:send-refresh="sendRefresh"
+			@page-row-btn="pageRowBtnHandler"
+			@page-list-btn="pageListBtnHandler"
 		>
 		</tu-page>
 	</tu-container>
@@ -71,7 +73,17 @@ export default {
 			server: '',
 		};
 	},
-	methods: { },
+	methods: {
+		// 列表按钮事件
+		pageListBtnHandler(btn, index) {
+			switch (btn.code) { }
+		},
+
+		// 行内按钮事件
+		pageRowBtnHandler(btn, index, row) {
+			switch (btn.code) { }
+		},
+	},
 };
 </script>
 
