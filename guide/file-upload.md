@@ -79,7 +79,7 @@ export default {
 			server: '', // 服务
 			fileList: [], // 上传的文件列表
 			uploadData: {
-				SERV_ID: this.server, // 服务ID
+				SERV_ID: '', // 服务ID
 				FILE_CAT: 'FUJIAN', // 字段ID
 				DATA_ID: '', // 需要跟当前页面的ID相同
 			},
@@ -89,7 +89,7 @@ export default {
 	methods: {
 		autoUpload(row) {
 			this.currentList = row;
-			this.AnnexForm.DATA_ID = row.ID;
+			this.uploadData.DATA_ID = row.ID;
 		},
 
 		// 上传文件之前的钩子
@@ -161,7 +161,8 @@ systemTemplateQueryFile(handler, _PK_) {
 ```
 
 ## 预览附件
-```vue
+::: code-group
+```vue [卡片页 和 tu-input 预览]
 <template>
 	<tu-container>
 		<tu-page
@@ -217,3 +218,9 @@ viewFiles(handler, fileId) {
 	});
 },
 ```
+
+```vue [el-input 预览]
+
+```
+
+:::
