@@ -80,7 +80,7 @@ export default {
 			fileList: [], // 上传的文件列表
 			uploadData: {
 				SERV_ID: '', // 服务ID
-				FILE_CAT: 'FUJIAN', // 字段ID
+				FILE_CAT: '', // 用来区分1个ID不同类型的附件
 				DATA_ID: '', // 需要跟当前页面的ID相同
 			},
 			currentList: {}, // 点击上传当前列表的数据
@@ -90,6 +90,7 @@ export default {
 		autoUpload(row) {
 			this.currentList = row;
 			this.uploadData.DATA_ID = row.ID;
+			this.uploadData.FILE_CAT = 'FUJIAN';
 		},
 
 		// 上传文件之前的钩子
@@ -129,7 +130,7 @@ systemTemplateQueryFile(handler, _PK_) {
 	<el-button type="text" @click="autoDownload(scope.row)">下载</el-button>
 </template>
 
-// 点击列表行上的附件
+// 下载附件
 autoDownload(row) {
 	if (row.FILE_ID) {
 		this.$tu.utils.server.download(row.FILE_ID);
@@ -220,7 +221,48 @@ viewFiles(handler, fileId) {
 ```
 
 ```vue [el-input 预览]
+<el-button type="text" @click="viewFile(scope.row)">预览</el-button>
 
+// 预览附件
+async viewFile(row) {
+	if (row.FILE_ID) {
+		const resUrl = await this.$api.viewFiles(this, row.FILE_ID);
+		window.open(resUrl.URL);
+	} else {
+		this.$message.warning('暂无附件');
+	}
+},
 ```
 
 :::
+
+## 删除附件
+```vue
+<el-button type="text" size="small" @click="deleteFile(scope.row)">删除</el-button>
+
+// 删除附件
+deleteFile(row) {
+	if (row.FILE_ID) {
+		this.$api.deleteFile(this, this.server , this.params.row.ID, row.FILE_ID);
+	} else {
+		this.$message.warning('暂无附件');
+	}
+},
+
+/**
+ * 删除附件
+ * @param {*} handler
+ * @returns
+ */
+deleteFile(handler, SERV_ID, DATA_ID, FILE_ID) {
+	return handler.$tu.utils.request.http({
+		url: '/SY_COMM_FILE.delete.do',
+		method: 'post',
+		params: {
+			SERV_ID,
+			DATA_ID,
+			FILE_ID,
+		},
+	});
+},
+```
