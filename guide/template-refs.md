@@ -23,3 +23,4 @@ pageHandler.getFormData()
 | getListData          | 获取列表数据     | —    |
 | getListBtns          | 获取页面按钮数组 | —    |
 | getListSelectionData | 获取选中的数据   | —    |
+| refresh   | 刷新页面     | —                  |
