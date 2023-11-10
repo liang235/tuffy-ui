@@ -1,6 +1,19 @@
 # server
 `server` 属于 `$tu.utils` 下的工具类
 
+## 系统方法
+
+### 批量保存
+```js
+/**
+ * @param {*} this 当前上下文对象
+ * @param {*} this.server 当前页面服务
+ * @param {*} batchData 保存的数组对象
+ * @returns
+ */
+this.$tu.utils.server.batchSave(this, this.server, batchData);
+```
+
 ## openPage 跳转页面
 一般在卡片/列表页面按钮点击的时候使用
 ```js
