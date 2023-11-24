@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,Q as l}from"./chunks/framework.31073e25.js";const g=JSON.parse('{"title":"页面插槽","description":"","frontmatter":{},"headers":[],"relativePath":"guide/slots.md","filePath":"guide/slots.md"}'),p={name:"guide/slots.md"},t=l("",4),o=[t];function e(r,c,E,y,i,u){return a(),n("div",null,o)}const m=s(p,[["render",e]]);export{g as __pageData,m as default};
