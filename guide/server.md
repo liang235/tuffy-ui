@@ -3,15 +3,27 @@
 
 ## 系统方法
 
+### 获取表单数据
+```js
+/**
+ * @param {*} this 当前上下文对象
+ * @param {*} this.server 当前页面服务
+ * @param {*} ID 当前表单主键
+ * @returns
+ */
+this.$api.byid(this, this.server, this.params.ID);
+```
+
 ### 批量保存
 ```js
 /**
  * @param {*} this 当前上下文对象
  * @param {*} this.server 当前页面服务
  * @param {*} batchData 保存的数组对象
+ * @param {*} false 不显示提示消息
  * @returns
  */
-this.$tu.utils.server.batchSave(this, this.server, batchData);
+this.$tu.utils.server.batchSave(this, this.server, false);
 ```
 
 ## openPage 跳转页面
