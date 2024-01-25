@@ -9,6 +9,7 @@
 ## 通用方法
 | 类型               | 说明                 | 默认值 |
 | :----------------- | :------------------- | :----- |
+| is-search | 是否显示查询条件 | true  |
 | reset-row-dblclick | 是否禁用页面双击事件 | false  |
 | use-list-show-back | 是否添加返回按钮     | false  |
 | is-link-readonly   | 关联服务是否为只读   | false  |
